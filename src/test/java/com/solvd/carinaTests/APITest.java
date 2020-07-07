@@ -18,85 +18,67 @@ import com.solvd.carinaTests.api.posts.GetPostMethod;
 import com.solvd.carinaTests.api.posts.PostPostMethod;
 import com.solvd.carinaTests.api.posts.PutPostMethod;
 
+import io.restassured.path.json.JsonPath;
+
 public class APITest extends AbstractTest {
 	
 	@Test
 	@MethodOwner(owner="Maia")
-	public void testGetPosts () {
+	public void testCRUDPosts () {
+		PostPostMethod postPostMethod = new PostPostMethod();
+		postPostMethod.expectResponseStatus(HttpResponseStatusType.CREATED_201);
+		postPostMethod.validateResponse();
+		
 		GetPostMethod getPostMethod = new GetPostMethod();
 		getPostMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		getPostMethod.callAPI();
 		getPostMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
 		getPostMethod.validateResponseAgainstJSONSchema("api/posts/_get/rs.schema");
-	}
-	
-	@Test
-	@MethodOwner(owner= "Maia")
-	public void testDeletePosts() {
-		DeletePostMethod deletePostMethod = new DeletePostMethod();
-		deletePostMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
-		deletePostMethod.callAPI();
-		deletePostMethod.validateResponse();
-	}
-	
-	@Test
-	@MethodOwner(owner="Maia")
-	public void testCreatePost() {
-		PostPostMethod postPostMethod = new PostPostMethod();
-		postPostMethod.expectResponseStatus(HttpResponseStatusType.CREATED_201);
-		postPostMethod.callAPI();
-		postPostMethod.validateResponse();
-	}
-	
-	@Test
-	@MethodOwner(owner="Maia")
-	public void testPutPost() {
+		
 		PutPostMethod putPostMethod = new PutPostMethod();
 		putPostMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		putPostMethod.callAPI();
 		putPostMethod.validateResponse();
-	}
+		
+		DeletePostMethod deletePostMethod = new DeletePostMethod();
+		deletePostMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
+		deletePostMethod.callAPI();
+		deletePostMethod.validateResponse();
+	}	
+	
 	
 	@Test
 	@MethodOwner(owner="Maia")
-	public void testGetAlbums () {
+	public void testCRUDAlbums () {
+		PostAlbumMethod postAlbumMethod = new PostAlbumMethod();
+		postAlbumMethod.expectResponseStatus(HttpResponseStatusType.CREATED_201);
+		postAlbumMethod.validateResponse();
+		
 		GetAlbumMethod getAlbumMethod = new GetAlbumMethod();
 		getAlbumMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		getAlbumMethod.callAPI();
 		getAlbumMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
 		getAlbumMethod.validateResponseAgainstJSONSchema("api/albums/_get/rs.schema");
-	}
-	
-	@Test
-	@MethodOwner(owner="Maia")
-	public void testDeleteAlbums() {
+		
+		PutAlbumMethod putAlbumMethod = new PutAlbumMethod();
+		putAlbumMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
+		putAlbumMethod.callAPI();
+		putAlbumMethod.validateResponse();
+		
 		DeleteAlbumMethod deleteAlbumMethod = new DeleteAlbumMethod();
 		deleteAlbumMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		deleteAlbumMethod.callAPI();
 		deleteAlbumMethod.validateResponse();
 	}
 	
-	@Test
-	@MethodOwner(owner="Maia")
-	public void testCreateAlbum() {
-		PostAlbumMethod postAlbumMethod = new PostAlbumMethod();
-		postAlbumMethod.expectResponseStatus(HttpResponseStatusType.CREATED_201);
-		postAlbumMethod.callAPI();
-		postAlbumMethod.validateResponse();
-	}
 	
 	@Test
 	@MethodOwner(owner="Maia")
-	public void testPutAlbum() {
-		PutAlbumMethod putAlbumMethod = new PutAlbumMethod();
-		putAlbumMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
-		putAlbumMethod.callAPI();
-		putAlbumMethod.validateResponse();
-	}
-	
-	@Test
-	@MethodOwner(owner="Maia")
-	public void testGetComments() {
+	public void testCreateAndGetComment() {
+		PostCommentMethod postCommentMethod = new PostCommentMethod();
+		postCommentMethod.expectResponseStatus(HttpResponseStatusType.CREATED_201);
+		postCommentMethod.validateResponse();
+		
 		GetCommentMethod getCommentMethod = new GetCommentMethod();
 		getCommentMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		getCommentMethod.callAPI();
@@ -105,12 +87,4 @@ public class APITest extends AbstractTest {
 		
 	}
 	
-	@Test
-	@MethodOwner(owner="Maia")
-	public void testCreateComment() {
-		PostCommentMethod postCommentMethod = new PostCommentMethod();
-		postCommentMethod.expectResponseStatus(HttpResponseStatusType.CREATED_201);
-		postCommentMethod.callAPI();
-		postCommentMethod.validateResponse();	
-	}
 }

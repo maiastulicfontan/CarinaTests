@@ -26,7 +26,7 @@ public class HeaderMenu extends AbstractUIObject{
 	@FindBy(xpath="//*[@id=\"mega-nav-navigation\"]/div/ul[1]/li[4]/button")
 	private ExtendedWebElement productLink;
 	
-	@FindBy(xpath="//div[contains(@class, 'yx-njb')]//a")
+	@FindBy(xpath="//*[@id=\"mega-nav-navigation\"]/div/ul/li/div/div/ul/li/a")
 	private List<ExtendedWebElement> productItems;
 	
 	@FindBy(xpath="//*[@id=\"mega-nav-navigation\"]/div/ul[1]/li[6]/button")
@@ -72,7 +72,6 @@ public class HeaderMenu extends AbstractUIObject{
 	
 	public void selectProductItem(String itemName) {
 		productLink.click();
-		System.out.println(productItems);
 		for (ExtendedWebElement productItem: productItems) {
 			String currentItem = productItem.getElement().getText();
 			if (itemName.equalsIgnoreCase(currentItem)) {

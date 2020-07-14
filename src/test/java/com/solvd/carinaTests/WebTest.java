@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
+import com.solvd.carinaTests.gui.pages.DemoPage;
 import com.solvd.carinaTests.gui.pages.HomePage;
 import com.solvd.carinaTests.gui.pages.PricingPage;
 import com.solvd.carinaTests.gui.pages.PrivacyPolicyPage;
@@ -46,6 +47,8 @@ public class WebTest extends AbstractTest{
 		homePage.open();
 		Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
 		
+		homePage.getDiscountCouponAd().closeAdIfPresent();
+		
 		PricingPage pricingPage = homePage.getHeaderMenu().openPricingPage();
 		pricingPage.clickSelectBasicBtn();
 		
@@ -53,7 +56,9 @@ public class WebTest extends AbstractTest{
 		//Select qtySelector = buyModal.getQtySelector();
 		//qtySelector.selectByValue("2");
 		
+		
 		buyModal.selectSuscribeCheckbox();
+		Assert.assertTrue(buyModal.getSuscribeCheckbox().isChecked());
 		
 		buyModal.closeModal();
 		Assert.assertFalse(buyModal.isUIObjectPresent(2), "Buy Modal hasn't closed!");	
@@ -67,14 +72,16 @@ public class WebTest extends AbstractTest{
 		homePage.open();
 		Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");
 		
-		homePage.getNewsletterForm().suscribeToNewsletter(email);
+		DemoPage demoPage = homePage.getHeaderMenu().openDemoPage();
+		
+		demoPage.getNewsletterForm().suscribeToNewsletter(email);
 		pause(5);
 	}
 	
 	@Test
 	@MethodOwner(owner="Maia")
 	public void testSelectProductItem() {
-		final String itemName = "Tours Module";
+		final String itemName = "Hotels Module";
 		HomePage homePage = new HomePage(getDriver());
 		homePage.open();
 		Assert.assertTrue(homePage.isPageOpened(), "Home page is not opened");

@@ -50,6 +50,14 @@ public class BuyModal extends AbstractUIObject{
 		return qtySelector;
 	}*/
 	
+	public ExtendedWebElement getSuscribeCheckbox() {
+		return suscribeCheckbox;
+	}
+
+	public void setSuscribeCheckbox(ExtendedWebElement suscribeCheckbox) {
+		this.suscribeCheckbox = suscribeCheckbox;
+	}
+
 	public String readTotalPrice() {
 		return totalPrice.getElement().getText();
 	}

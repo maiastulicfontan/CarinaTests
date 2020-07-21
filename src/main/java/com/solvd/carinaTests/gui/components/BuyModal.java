@@ -11,7 +11,7 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class BuyModal extends AbstractUIObject{
 	
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div/div[2]/div")
+	@FindBy(xpath="//div[@class='sc-dfVpRl XAZJq']")
 	private ExtendedWebElement title;
 	
 	/*@FindBy(xpath="//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div/div[1]/div/select")
@@ -19,22 +19,22 @@ public class BuyModal extends AbstractUIObject{
 	
 	//Select qtySelector = new Select (driver.findElement(By.xpath("./select")));
 	
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div/div/form/div[1]/div/input")
+	@FindBy(xpath="//input[@class='sc-gHboQg cxSpEs']")
 	private ExtendedWebElement emailInput;
 	
-	@FindBy(xpath="//*[@id=\"marketingConsent\"]")
+	@FindBy(xpath="//input[@id='marketingConsent']")
 	private ExtendedWebElement suscribeCheckbox;
 	
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div/div/form/div[3]/div/div/span[1]")
+	@FindBy(xpath="//span[@class='sc-gqPbQI egsXIH']")
 	private ExtendedWebElement totalText;
 	
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div/div/form/div[3]/div/div/span[2]/span/var")
+	@FindBy(xpath="//span[@class='sc-hORach bMvUgv']")
 	private ExtendedWebElement totalPrice;
 	
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[1]/div[1]/div[2]/div/div/form/button")
+	@FindBy(xpath="//button[@class='sc-bdVaJa bCVgly']")
 	private ExtendedWebElement continueBtn;
 	
-	@FindBy(xpath="//*[@id=\"root\"]/div/div[1]/div[1]/div[1]/div/div[3]")
+	@FindBy(xpath="//div[@data-testid='closeButton']")
 	private ExtendedWebElement closeBtn;
 	
 	
@@ -52,10 +52,6 @@ public class BuyModal extends AbstractUIObject{
 	
 	public ExtendedWebElement getSuscribeCheckbox() {
 		return suscribeCheckbox;
-	}
-
-	public void setSuscribeCheckbox(ExtendedWebElement suscribeCheckbox) {
-		this.suscribeCheckbox = suscribeCheckbox;
 	}
 
 	public String readTotalPrice() {

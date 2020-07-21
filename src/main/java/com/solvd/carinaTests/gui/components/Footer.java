@@ -11,16 +11,20 @@ import com.solvd.carinaTests.gui.pages.TermsOfServicePage;
 
 public class Footer extends AbstractUIObject{
 	
-	@FindBy(xpath="/html/body/div[4]/div[2]/div/div[2]/p")
+	//@FindBy(xpath="/html/body/div[4]/div[2]/div/div[2]/p")
+	@FindBy(xpath="//div[@class='copyright hidden-xs']//p")
 	private ExtendedWebElement copyrightInfo;
 	
-	@FindBy(xpath="/html/body/div[4]/div[2]/div/div[2]/span")
+	//@FindBy(xpath="/html/body/div[4]/div[2]/div/div[2]/span")
+	@FindBy(xpath="//div[@class='copyright hidden-xs']//span")
 	private ExtendedWebElement slogan;
 	
-	@FindBy(xpath="/html/body/div[4]/div[2]/div/div[1]/ul[1]/li[1]/a")
+	//@FindBy(xpath="/html/body/div[4]/div[2]/div/div[1]/ul[1]/li[1]/a")
+	@FindBy(xpath="//ul[@class='links-terms']//a[text()='Terms of Service']")
 	private ExtendedWebElement termsOfServiceLink;
 	
-	@FindBy(xpath="/html/body/div[4]/div[2]/div/div[1]/ul[1]/li[2]/a")
+	//@FindBy(xpath="/html/body/div[4]/div[2]/div/div[1]/ul[1]/li[2]/a")
+	@FindBy(xpath="//ul[@class='links-terms']//a[text()='Privacy Policy']")
 	private ExtendedWebElement privacyPolicyLink;
 	
 	public Footer(WebDriver driver, SearchContext searchContext) {

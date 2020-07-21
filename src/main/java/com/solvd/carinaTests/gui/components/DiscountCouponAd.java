@@ -9,7 +9,8 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class DiscountCouponAd extends AbstractUIObject{
 	
-	@FindBy(xpath="/html/body/div[5]/button")
+	//@FindBy(xpath="/html/body/div[5]/button")
+	@FindBy(xpath="//button[@class='ad-btn-hide']")
 	private ExtendedWebElement closeBtn;
 	
 	public DiscountCouponAd(WebDriver driver, SearchContext searchContext) {

@@ -38,7 +38,7 @@ public class APITest extends AbstractTest {
 		getPostMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		getPostMethod.callAPI();
 		getPostMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
-		getPostMethod.validateResponseAgainstJSONSchema("api/posts/_get/rs.schema");
+		getPostMethod.validateResponseAgainstSchema("api/posts/_get/rs.schema");
 		
 		PutPostMethod putPostMethod = new PutPostMethod();
 		putPostMethod.replaceUrlPlaceholder("post_id", postId);
@@ -69,7 +69,7 @@ public class APITest extends AbstractTest {
 		getAlbumMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		getAlbumMethod.callAPI();
 		getAlbumMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
-		getAlbumMethod.validateResponseAgainstJSONSchema("api/albums/_get/rs.schema");
+		getAlbumMethod.validateResponseAgainstSchema("api/albums/_get/rs.schema");
 		
 		PutAlbumMethod putAlbumMethod = new PutAlbumMethod();
 		putAlbumMethod.replaceUrlPlaceholder("album_id", albumId);
@@ -100,7 +100,7 @@ public class APITest extends AbstractTest {
 		getCommentMethod.expectResponseStatus(HttpResponseStatusType.OK_200);
 		getCommentMethod.callAPI();
 		getCommentMethod.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
-		getCommentMethod.validateResponseAgainstJSONSchema("api/comments/_get/rs.schema");
+		getCommentMethod.validateResponseAgainstSchema("api/comments/_get/rs.schema");
 		
 	}
 	

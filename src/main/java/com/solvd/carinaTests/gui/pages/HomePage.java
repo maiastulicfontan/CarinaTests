@@ -11,13 +11,13 @@ import com.solvd.carinaTests.gui.components.NewsletterForm;
 
 public class HomePage extends AbstractPage{
 	
-	@FindBy(xpath="/html/body/header")
+	@FindBy(xpath="//header")
 	private HeaderMenu headerMenu;
 	
-	@FindBy(xpath="/html/body/div[4]/div[2]")
+	@FindBy(xpath="//div[@class='footer-bottom']")
 	private Footer footer;
 	
-	@FindBy(xpath="/html/body/section/nav")
+	@FindBy(xpath="//div[@class='collapse navbar-collapse']")
 	private NewsletterForm newsletterForm;
 	
 	public HomePage(WebDriver driver) {
@@ -27,10 +27,15 @@ public class HomePage extends AbstractPage{
 	public DiscountCouponAd getDiscountCouponAd() {
 		return new DiscountCouponAd(driver);
 	}
-	
-	public HeaderMenu getHeaderMenu() {
-		return headerMenu;
+
+	public PricingPage openPricingPage() {
+		return this.headerMenu.openPricingPage();
 	}
+	
+	public DemoPage openDemoPage() {
+		return this.headerMenu.openDemoPage();
+	}
+	
 	
 	public NewsletterForm getNewsletterForm() {
 		return newsletterForm;

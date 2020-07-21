@@ -9,10 +9,12 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class NewsletterForm extends AbstractUIObject{
 	
-	@FindBy(xpath="//*[@id=\"address\"]")
+	//@FindBy(xpath="//*[@id=\"address\"]")
+	@FindBy(xpath="//input[@id='address']")
 	private ExtendedWebElement input;
 	
-	@FindBy(xpath="//*[@id=\"email\"]/button")
+	//@FindBy(xpath="//*[@id=\"email\"]/button")
+	@FindBy(xpath="//div[@id='email']//button")
 	private ExtendedWebElement suscribeBtn;
 	
 	public NewsletterForm(WebDriver driver, SearchContext searchContext) {

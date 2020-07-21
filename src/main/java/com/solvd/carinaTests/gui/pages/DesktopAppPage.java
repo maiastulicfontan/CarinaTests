@@ -11,20 +11,20 @@ import com.solvd.carinaTests.gui.components.HeaderMenu;
 import com.solvd.carinaTests.gui.components.NewsletterForm;
 
 public class DesktopAppPage extends AbstractPage{
-	@FindBy(xpath="/html/body/header")
+	@FindBy(xpath="//header")
 	private HeaderMenu headerMenu;
 	
-	@FindBy(xpath="//*[@id=\"Main\"]/section[1]/div")
+	@FindBy(xpath="//div[@xpath=1]")
 	private Header header;
 	
-	@FindBy(xpath="/html/body/section/nav")
+	@FindBy(xpath="//div[@class='collapse navbar-collapse']")
 	private NewsletterForm newsletterForm;
 	
-	@FindBy(xpath="/html/body/div[4]/div[1]")
+	@FindBy(xpath="//div[@class='footer-top']")
 	private FooterMenu footerMenu;
 	
-	@FindBy(xpath="/html/body/div[4]/div[2]")
-	private Footer footer;
+	@FindBy(xpath="//div[@class='footer-bottom']")
+	private Footer footer;;
 	
 	public DesktopAppPage(WebDriver driver) {
 		super(driver);

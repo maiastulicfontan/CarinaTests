@@ -11,10 +11,12 @@ import com.solvd.carinaTests.gui.pages.FeaturesPage;
 
 public class FooterMenu extends AbstractUIObject{
 	
-	@FindBy(xpath="/html/body/div[4]/div[1]/div/div[2]/div[1]/ul/li[1]/a")
+	//@FindBy(xpath="/html/body/div[4]/div[1]/div/div[2]/div[1]/ul/li[1]/a")
+	@FindBy(xpath="//div[@class='sitemap-links']//a[text()='Desktop App']")
 	private ExtendedWebElement desktopAppLink;
 	
-	@FindBy(xpath="/html/body/div[4]/div[1]/div/div[2]/div[1]/ul/li[3]/a")
+	//@FindBy(xpath="/html/body/div[4]/div[1]/div/div[2]/div[1]/ul/li[3]/a")
+	@FindBy(xpath="//div[@class='sitemap-links']//a[text()='Features']")
 	private ExtendedWebElement featuresLink;
 	
 	public FooterMenu(WebDriver driver, SearchContext searchContext) {

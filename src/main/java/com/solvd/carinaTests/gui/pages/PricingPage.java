@@ -1,5 +1,7 @@
 package com.solvd.carinaTests.gui.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -10,32 +12,38 @@ import com.solvd.carinaTests.gui.components.Footer;
 import com.solvd.carinaTests.gui.components.Header;
 import com.solvd.carinaTests.gui.components.HeaderMenu;
 import com.solvd.carinaTests.gui.components.NewsletterForm;
+import com.solvd.carinaTests.gui.components.ProductBundle;
 
 public class PricingPage extends AbstractPage{
 	
-	@FindBy(xpath="/html/body/header")
+	@FindBy(xpath="//header")
 	private HeaderMenu headerMenu;
 	
-	@FindBy(xpath="//*[@id=\"Main\"]/section[1]/div")
+	@FindBy(xpath="//div[@xpath=1]")
 	private Header header;
 	
-	@FindBy(xpath="/html/body/section/nav")
+	@FindBy(xpath="//div[@class='collapse navbar-collapse']")
 	private NewsletterForm newsletterForm;
 	
-	@FindBy(xpath="/html/body/div[4]/div[2]")
+	@FindBy(xpath="//div[@class='footer-bottom']")
 	private Footer footer;
 	
 	@FindBy(xpath="//*[@id=\"pf_582434\"]")
 	private BuyModal buyModal;
 	
-	@FindBy(xpath="//*[@id=\"Main\"]/div/div[3]/table/thead/tr/th[2]/div/p[2]/a")
+	@FindBy(xpath="//tr[@class='x-nsi']/th[2]/div/p[2]/a")
 	private ExtendedWebElement selectBasicBtn;
 	
-	@FindBy(xpath="//*[@id=\"Main\"]/div/div[3]/table/thead/tr/th[3]/div/p[2]/a")
+	@FindBy(xpath="//tr[@class='x-nsi']/th[3]/div/p[2]/a")
 	private ExtendedWebElement selectProBtn;
 	
-	@FindBy(xpath="//*[@id=\"Main\"]/div/div[3]/table/thead/tr/th[4]/div/p[2]/a")
+	@FindBy(xpath="//tr[@class='x-nsi']/th[4]/div/p[2]/a")
 	private ExtendedWebElement selectEnterpriseBtn;
+	
+	@FindBy(xpath="//th[@class='x-nss x-pr']")
+	private List<ProductBundle> productBundles;
+	
+	//private Enum 
 	
 	public PricingPage(WebDriver driver) {
 		super(driver);
@@ -63,8 +71,17 @@ public class PricingPage extends AbstractPage{
 	
 	public void clickSelectBasicBtn() {
 		selectBasicBtn.click();
-		driver.switchTo().frame("pf_582434");
-		
+		driver.switchTo().frame("pf_582434");	
+	}
+	
+	//change lists to enums
+	public ProductBundle selectProductBundle(String bundleName) {
+		for (ProductBundle pb: productBundles ) {
+			if (pb.readTitle() == bundleName) {
+				return pb;
+			}
+		}
+		return null;
 	}
 
 }
